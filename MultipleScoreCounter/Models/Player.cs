@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reactive;
 using System.Runtime.CompilerServices;
-using MultipleScoreCounter.ViewModels;
 using ReactiveUI;
 
 namespace MultipleScoreCounter.Models;
@@ -31,7 +30,7 @@ public class Player : INotifyPropertyChanged
 
     public Player(int number)
     {
-        _name = "Hráč " + Number;
+        _name = "Hráč " + number;
         Number = number;
         AddOneCommand = ReactiveCommand.Create<string>(AddOne);
         RemoveOneCommand = ReactiveCommand.Create<string>(RemoveOne);
