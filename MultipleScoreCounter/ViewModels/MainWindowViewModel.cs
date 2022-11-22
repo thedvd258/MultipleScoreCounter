@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Reactive;
 using System.Runtime.CompilerServices;
 using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Themes.Fluent;
 using MultipleScoreCounter.Models;
 using MultipleScoreCounter.Views;
 using ReactiveUI;
@@ -20,17 +16,16 @@ namespace MultipleScoreCounter.ViewModels
     {
         //public ReactiveCommand<Unit, Unit> NewGameCommand { get; }
         public ReactiveCommand<Unit, Unit> ExitCommand { get; }
-        public ReactiveCommand<Unit, Unit> StartGameCommand { get; }
-        
-        public List<Player> Players { get; }
+        public ReactiveCommand<Unit, Unit> StartPreviousGameCommand { get; }
+        public ReactiveCommand<Unit, Unit> StartNewGameCommand { get; }
+        public object FirstGame => _firstGame;
+        private bool _firstGame;
+        private List<Player> Players { get; }
         
         /**
          * Slider Label Text property
          */
-        public object SliderText
-        {
-            get => (Floor((double)_sliderValue).ToString(CultureInfo.InvariantCulture));
-        }
+        public object SliderText => (Floor((double)_sliderValue).ToString(CultureInfo.InvariantCulture));
 
         /**
          * Slider value
@@ -50,7 +45,9 @@ namespace MultipleScoreCounter.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SliderText)));
             }
         }
+
         
+
         /**
          * Main Window Constructor
          */
@@ -58,36 +55,49 @@ namespace MultipleScoreCounter.ViewModels
         {
             Players = new List<Player>();
             _sliderValue = 1;
-            //NewGameCommand = ReactiveCommand.Create(NewGame);
+            _firstGame = true;
             ExitCommand = ReactiveCommand.Create(Exit);
-            StartGameCommand = ReactiveCommand.Create(StartGame);
+            StartNewGameCommand = ReactiveCommand.Create(StartNewGame);
+            StartPreviousGameCommand = ReactiveCommand.Create(StartPreviousGame);
         }
 
-        
         /**
-         * Start a new game
+         * Starts a new game
          */
-        private void StartGame()
+        private void StartNewGame()
         {
-
-            //var window = new GameView();
-            //window.Show();
-            
-            int numberOfPlayers = (int)Floor((double)_sliderValue);
-            for (int i = 1; i <= numberOfPlayers; ++i)
+            Players.Clear();
+            var numberOfPlayers = (int)Floor((double)_sliderValue);
+            for (var i = 1; i <= numberOfPlayers; ++i)
             {
                 Players.Add(new Player(i));
             }
 
-            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+            _firstGame = false;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FirstGame)));
+
+            if (Application.Current?.ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop) return;
+            var ownerWindow = desktop.MainWindow;
+            var window = new GameView
             {
-                var ownerWindow = desktop.MainWindow;
-                var window = new GameView
-                {
-                    DataContext = new GameViewModel(Players)
-                };
-                window.ShowDialog(ownerWindow);
-            }
+                DataContext = new GameViewModel(Players)
+            };
+            window.ShowDialog(ownerWindow);
+        }
+
+
+        /**
+         * Start a previous game
+         */
+        private void StartPreviousGame()
+        {
+            if (Application.Current?.ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop) return;
+            var ownerWindow = desktop.MainWindow;
+            var window = new GameView
+            {
+                DataContext = new GameViewModel(Players)
+            };
+            window.ShowDialog(ownerWindow);
         }
 
         /**

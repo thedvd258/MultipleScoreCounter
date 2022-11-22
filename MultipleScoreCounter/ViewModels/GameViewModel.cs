@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -5,7 +6,9 @@ using System.Linq;
 using System.Reactive;
 using System.Runtime.CompilerServices;
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Media;
 using MultipleScoreCounter.Models;
 using ReactiveUI;
 
@@ -16,8 +19,9 @@ namespace MultipleScoreCounter.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
         
         public ReactiveCommand<Unit, Unit> ExitCommand { get; }
+        
         public List<Player> Players { get;}
-
+        
         public GameViewModel(IEnumerable<Player> items)
         {
             ExitCommand = ReactiveCommand.Create(Exit);
