@@ -1,22 +1,31 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<Window xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MultipleScoreCounter.ViewModels"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="100" d:DesignHeight="50"
-             x:Class="MultipleScoreCounter.Views.GameView">
-    <Panel>
-        <ExperimentalAcrylicBorder IsHitTestVisible="False">
-            <ExperimentalAcrylicBorder.Material>
-                <ExperimentalAcrylicMaterial
-                    BackgroundSource="Digger"
-                    TintColor="Black"
-                    TintOpacity="1"
-                    MaterialOpacity="0.65" />
-            </ExperimentalAcrylicBorder.Material>
-        </ExperimentalAcrylicBorder>
+             x:Class="MultipleScoreCounter.Views.GameView"
+             Icon="/Assets/avalonia-logo.ico"
+             Title="Game">
 
-        <Panel Margin="40">
-
-        </Panel>
-    </Panel>
-</UserControl>
+    <!--<Design.DataContext>
+        <vm:GameViewModel/>
+    </Design.DataContext>-->
+    <DockPanel>
+        <Menu HorizontalAlignment="Right" DockPanel.Dock="Top">
+            <MenuItem Header="_Karty"/>
+            <MenuItem Header="_Exit" Command="{Binding ExitCommand}"/>
+        </Menu>
+        <ListBox Items="{Binding Players}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border  Padding="4" Height="30">
+                        <TextBlock Text="{Binding Name}"/>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+    
+    
+</Window>

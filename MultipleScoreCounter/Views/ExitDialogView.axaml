@@ -7,19 +7,4 @@
              Title="Exit"
              TransparencyLevelHint="AcrylicBlur"
              ExtendClientAreaToDecorationsHint="True">
-    <Panel>
-        <ExperimentalAcrylicBorder IsHitTestVisible="False">
-            <ExperimentalAcrylicBorder.Material>
-                <ExperimentalAcrylicMaterial
-                    BackgroundSource="Digger"
-                    TintColor="Black"
-                    TintOpacity="1"
-                    MaterialOpacity="0.65" />
-            </ExperimentalAcrylicBorder.Material>
-        </ExperimentalAcrylicBorder>
-
-        <Panel Margin="40">
-
-        </Panel>
-    </Panel>
 </Window>

@@ -25,6 +25,6 @@
         
         <TextBlock HorizontalAlignment="Center" Text="{Binding SliderText}"/>
         
-        <Button HorizontalAlignment="Center" Content="Spustit hru"/>
+        <Button HorizontalAlignment="Center" Content="Spustit hru" Command="{Binding StartGameCommand}"/>
     </StackPanel>
 </UserControl>
