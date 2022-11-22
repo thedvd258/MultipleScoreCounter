@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MultipleScoreCounter.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MultipleScoreCounter.Views.MenuView">
+    
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <UserControl.Styles>
+        <Style Selector="TextBlock.h1">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </UserControl.Styles>
+
+    <StackPanel Spacing="20" VerticalAlignment="Center">
+        
+        <TextBlock HorizontalAlignment="Center" Classes="h1" Text="Počet hráčů:"/>
+        
+        <Slider Name="NumberOfPlayers" Minimum="1" Maximum="20" MaxWidth="600" Value="{Binding SliderValue}"/>
+        
+        <TextBlock HorizontalAlignment="Center" Text="{Binding SliderText}"/>
+        
+        <Button HorizontalAlignment="Center" Content="Spustit hru"/>
+    </StackPanel>
+</UserControl>
