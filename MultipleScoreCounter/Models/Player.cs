@@ -10,10 +10,16 @@ namespace MultipleScoreCounter.Models;
 public class Player : INotifyPropertyChanged
 {
     public int Number { get; set; }
-    
+
+    private string _name;
     public string Name
     {
-        get => "Hráč " + Number;
+        get => _name;
+        set
+        {
+            _name = value;
+            OnPropertyChanged("Name");
+        }
     }
     
     public int Banana { get; set; }
@@ -25,6 +31,7 @@ public class Player : INotifyPropertyChanged
 
     public Player(int number)
     {
+        _name = "Hráč " + Number;
         Number = number;
         AddOneCommand = ReactiveCommand.Create<string>(AddOne);
         RemoveOneCommand = ReactiveCommand.Create<string>(RemoveOne);
