@@ -36,8 +36,5 @@
         <DependentUpon>MenuView.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
-      <Compile Update="Views\ExitDialogView.axaml.cs">
-        <DependentUpon>ExitDialogView.axaml</DependentUpon>
-      </Compile>
     </ItemGroup>
 </Project>

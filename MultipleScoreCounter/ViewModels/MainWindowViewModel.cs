@@ -46,8 +46,6 @@ namespace MultipleScoreCounter.ViewModels
             }
         }
 
-        
-
         /**
          * Main Window Constructor
          */

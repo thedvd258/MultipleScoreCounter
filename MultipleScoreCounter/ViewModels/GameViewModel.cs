@@ -9,7 +9,7 @@ using ReactiveUI;
 
 namespace MultipleScoreCounter.ViewModels
 {
-    public sealed partial class GameViewModel : INotifyPropertyChanged
+    public sealed class GameViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         
