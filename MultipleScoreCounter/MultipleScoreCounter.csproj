@@ -36,16 +36,5 @@
         <DependentUpon>MenuView.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
-      <Compile Update="Views\CardsView.axaml.cs">
-        <DependentUpon>CardsView.axaml</DependentUpon>
-      </Compile>
-      <Compile Update="Views\CardView.axaml.cs">
-        <DependentUpon>CardView.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Views\CardsWindow.axaml.cs">
-        <DependentUpon>CardsWindow.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
     </ItemGroup>
 </Project>
