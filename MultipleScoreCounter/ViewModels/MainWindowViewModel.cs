@@ -21,6 +21,7 @@ namespace MultipleScoreCounter.ViewModels
         public object FirstGame => _firstGame;
         private bool _firstGame;
         private List<Player> Players { get; }
+        private List<Card> cardDatabase { get; }
         
         /**
          * Slider Label Text property
@@ -51,6 +52,7 @@ namespace MultipleScoreCounter.ViewModels
          */
         public MainWindowViewModel()
         {
+            this.cardDatabase = new List<Card>();
             Players = new List<Player>();
             _sliderValue = 1;
             _firstGame = true;
@@ -59,6 +61,13 @@ namespace MultipleScoreCounter.ViewModels
             StartPreviousGameCommand = ReactiveCommand.Create(StartPreviousGame);
         }
 
+        private void fillCardDatabase()
+        {
+            cardDatabase.Add(new Card("Pico"));
+            cardDatabase.Add(new Card("Kunda"));
+            cardDatabase.Add(new Card("Zmrd"));
+        }
+        
         /**
          * Starts a new game
          */
@@ -71,6 +80,11 @@ namespace MultipleScoreCounter.ViewModels
                 Players.Add(new Player(i));
             }
 
+            if (cardDatabase.Count <= 0)
+            {
+                fillCardDatabase();
+            }
+
             _firstGame = false;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FirstGame)));
 
@@ -78,10 +92,12 @@ namespace MultipleScoreCounter.ViewModels
             var ownerWindow = desktop.MainWindow;
             var window = new GameView
             {
-                DataContext = new GameViewModel(Players)
+                DataContext = new GameViewModel(Players, cardDatabase)
             };
             window.ShowDialog(ownerWindow);
         }
+        
+        
 
 
         /**
@@ -93,7 +109,7 @@ namespace MultipleScoreCounter.ViewModels
             var ownerWindow = desktop.MainWindow;
             var window = new GameView
             {
-                DataContext = new GameViewModel(Players)
+                DataContext = new GameViewModel(Players, cardDatabase)
             };
             window.ShowDialog(ownerWindow);
         }
