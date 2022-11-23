@@ -7,7 +7,8 @@
              Icon="/Assets/avalonia-logo.ico"
              Title="Game"
              MinWidth="500"
-             MinHeight="100">
+             MinHeight="100"
+             WindowStartupLocation="CenterScreen">
 
     <!--<Design.DataContext>
         <vm:GameViewModel/>
@@ -27,7 +28,7 @@
     
     <DockPanel>
         <Menu HorizontalAlignment="Right" DockPanel.Dock="Top">
-            <MenuItem Header="_Karty"/>
+            <MenuItem Header="_Karty" Command="{Binding SelectCardCommand}"/>
             <Separator/>
             <MenuItem Header="_Zavřít hru" Command="{Binding ExitCommand}"/>
         </Menu>
