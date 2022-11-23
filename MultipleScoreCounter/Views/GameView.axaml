@@ -33,70 +33,75 @@
             <MenuItem Header="_Zavřít hru" Command="{Binding ExitCommand}"/>
         </Menu>
         <Panel>
-        <ListBox Items="{Binding Players}" VerticalAlignment="Top">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Spacing="5">
-                        <Border  Padding="4" Height="30">
-                            <TextBox Text="{Binding Name}"/>
-                        </Border>
-                        <Separator MinWidth="20"/>
-                        <Border Background="Yellow"
-                                BorderBrush="Black"
-                                BorderThickness="2"
-                                CornerRadius="3"
-                                Padding="4"
-                                MinWidth="90">
-                            <StackPanel Orientation="Horizontal">
-                                <StackPanel Orientation="Vertical">
-                                    <Button Classes="blackText" Width="30" Content="+" CommandParameter="0" Command="{Binding AddOneCommand}"/>
-                                    <Button Classes="blackText" Width="30" Content="-" CommandParameter="0" Command="{Binding RemoveOneCommand}"/>
-                                </StackPanel>
-                                <Separator Width="10"/>
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding Banana}"/>
-                            </StackPanel>
-                        </Border>
-                        <Border Background="Red"
-                                BorderBrush="Black"
-                                BorderThickness="2"
-                                CornerRadius="3"
-                                Padding="4"
-                                MinWidth="90">
-                            <StackPanel Orientation="Horizontal">
-                                <StackPanel Orientation="Vertical">
-                                    <Button Classes="blackText" Width="30" Content="+" CommandParameter="1" Command="{Binding AddOneCommand}"/>
-                                    <Button Classes="blackText" Width="30" Content="-" CommandParameter="1" Command="{Binding RemoveOneCommand}"/>
-                                </StackPanel>
-                                <Separator Width="10"/>
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding Apple}"/>
-                            </StackPanel>
-                        </Border>
-                        <Border Background="Green"
-                                BorderBrush="Black"
-                                BorderThickness="2"
-                                CornerRadius="3"
-                                Padding="4"
-                                MinWidth="90">
-                            <StackPanel Orientation="Horizontal">
-                                <StackPanel Orientation="Vertical">
-                                    <Button Classes="blackText" Width="30" Content="+" CommandParameter="2" Command="{Binding AddOneCommand}"/>
-                                    <Button Classes="blackText" Width="30" Content="-" CommandParameter="2" Command="{Binding RemoveOneCommand}"/>
-                                </StackPanel>
-                                <Separator Width="10"/>
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding Cucumber}"/>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-            <ItemsControl Items="{Binding Cards}" Height="50"  VerticalAlignment="Bottom" Background="Black">
-                <ItemsControl.ItemTemplate>
+            <ListBox Items="{Binding Players}" VerticalAlignment="Top">
+                <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
+                        <StackPanel Orientation="Horizontal" Spacing="5">
+                            <Border  Padding="4" Height="30">
+                                <TextBox Text="{Binding Name}"/>
+                            </Border>
+                            <Separator MinWidth="20"/>
+                            <Border Background="Yellow"
+                                    BorderBrush="Black"
+                                    BorderThickness="2"
+                                    CornerRadius="3"
+                                    Padding="4"
+                                    MinWidth="90">
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Vertical">
+                                        <Button Classes="blackText" Width="30" Content="+" CommandParameter="0" Command="{Binding AddOneCommand}"/>
+                                        <Button Classes="blackText" Width="30" Content="-" CommandParameter="0" Command="{Binding RemoveOneCommand}"/>
+                                    </StackPanel>
+                                    <Separator Width="10"/>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding Banana}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Background="Red"
+                                    BorderBrush="Black"
+                                    BorderThickness="2"
+                                    CornerRadius="3"
+                                    Padding="4"
+                                    MinWidth="90">
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Vertical">
+                                        <Button Classes="blackText" Width="30" Content="+" CommandParameter="1" Command="{Binding AddOneCommand}"/>
+                                        <Button Classes="blackText" Width="30" Content="-" CommandParameter="1" Command="{Binding RemoveOneCommand}"/>
+                                    </StackPanel>
+                                    <Separator Width="10"/>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding Apple}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Background="Green"
+                                    BorderBrush="Black"
+                                    BorderThickness="2"
+                                    CornerRadius="3"
+                                    Padding="4"
+                                    MinWidth="90">
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Vertical">
+                                        <Button Classes="blackText" Width="30" Content="+" CommandParameter="2" Command="{Binding AddOneCommand}"/>
+                                        <Button Classes="blackText" Width="30" Content="-" CommandParameter="2" Command="{Binding RemoveOneCommand}"/>
+                                    </StackPanel>
+                                    <Separator Width="10"/>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding Cucumber}"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
                     </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Orientation="Horizontal">
+                <ItemsRepeater Items="{Binding Cards}" Height="50"  VerticalAlignment="Bottom" Background="Black">
+                    <ItemsRepeater.Layout>
+                        <StackLayout Spacing="20" Orientation="Horizontal" />
+                    </ItemsRepeater.Layout>
+                    <ItemsRepeater.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ItemsRepeater.ItemTemplate>
+                </ItemsRepeater>
+            </StackPanel>
         </Panel>
     </DockPanel>
 </Window>
