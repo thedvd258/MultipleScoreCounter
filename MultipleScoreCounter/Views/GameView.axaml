@@ -20,6 +20,11 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="Black"/>
         </Style>
+        <Style Selector="TextBlock.blackH2">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
         <Style Selector="Button.blackText">
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="18"/>
@@ -36,6 +41,7 @@
             <ListBox Items="{Binding Players}" VerticalAlignment="Top">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
+                        <!-- Panel with score boxes -->
                         <StackPanel Orientation="Horizontal" Spacing="5">
                             <Border  Padding="4" Height="30">
                                 <TextBox Text="{Binding Name}"/>
@@ -86,18 +92,54 @@
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding Cucumber}"/>
                                 </StackPanel>
                             </Border>
+                            
+                            <!-- Players Cards -->
+                            <ItemsRepeater Items="{Binding Cards}" Height="65"  VerticalAlignment="Center" HorizontalAlignment="Right" Background="Black">
+                                <ItemsRepeater.Layout>
+                                    <StackLayout Spacing="20" Orientation="Horizontal" />
+                                </ItemsRepeater.Layout>
+                                <ItemsRepeater.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Background="Coral"
+                                                BorderBrush="Black"
+                                                BorderThickness="1"
+                                                CornerRadius="1"
+                                                Padding="4"
+                                                MaxWidth="150"
+                                                ToolTip.Tip="Cards description."><!-- TODO Bind cards description -->
+                                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Name}"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsRepeater.ItemTemplate>
+                            </ItemsRepeater>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             <StackPanel Orientation="Horizontal">
-                <ItemsRepeater Items="{Binding Cards}" Height="50"  VerticalAlignment="Bottom" Background="Black">
+                <ItemsRepeater Items="{Binding Cards}" Height="90"  VerticalAlignment="Bottom" Background="Black">
                     <ItemsRepeater.Layout>
                         <StackLayout Spacing="20" Orientation="Horizontal" />
                     </ItemsRepeater.Layout>
                     <ItemsRepeater.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Name}"/>
+                            <Border Background="Coral"
+                                    BorderBrush="Black"
+                                    BorderThickness="2"
+                                    CornerRadius="3"
+                                    Padding="4"
+                                    MaxWidth="150"
+                                    MinWidth="100"
+                                    MinHeight="85"
+                                    MaxHeight="90"
+                                    ToolTip.Tip="Cards description."><!-- TODO Bind cards description -->
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Classes="blackH2" Text="{Binding Name}"/>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Cost: X"/><!-- TODO Bind cost of cards -->
+                                    <Separator MinHeight="5"/>
+                                    <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Play" />
+                                </StackPanel>
+                            </Border>
                         </DataTemplate>
                     </ItemsRepeater.ItemTemplate>
                 </ItemsRepeater>

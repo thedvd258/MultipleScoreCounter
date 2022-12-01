@@ -63,9 +63,9 @@ namespace MultipleScoreCounter.ViewModels
 
         private void fillCardDatabase()
         {
-            cardDatabase.Add(new Card("Pico"));
-            cardDatabase.Add(new Card("Kunda"));
-            cardDatabase.Add(new Card("Zmrd"));
+            cardDatabase.Add(new Card("Card 1"));
+            cardDatabase.Add(new Card("Card 2"));
+            cardDatabase.Add(new Card("Card 3"));
         }
         
         /**

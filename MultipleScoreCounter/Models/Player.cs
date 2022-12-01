@@ -25,6 +25,16 @@ public class Player : INotifyPropertyChanged
     public int Apple { get; set; }
     public int Cucumber { get; set; }
     
+    /**
+     * Used to buy cards
+     */
+    public int Coins { get; set; }
+    
+    /**
+     * Players active cards
+     */
+    public List<Card> Cards { get; set; }
+    
     public ReactiveCommand<string, Unit> AddOneCommand { get; }
     public ReactiveCommand<string, Unit> RemoveOneCommand { get; }
 
@@ -35,6 +45,10 @@ public class Player : INotifyPropertyChanged
         AddOneCommand = ReactiveCommand.Create<string>(AddOne);
         RemoveOneCommand = ReactiveCommand.Create<string>(RemoveOne);
         Banana = Apple = Cucumber = 0;
+        
+        Coins = 0;
+        Cards = new List<Card>();
+        Cards.Add(new Card("Card 1"));
     }
 
     private void AddOne(string column)
