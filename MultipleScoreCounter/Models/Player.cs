@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reactive;
@@ -140,15 +141,15 @@ public class Player : INotifyPropertyChanged
         var columnNum = int.Parse(column);
         switch (columnNum)
         {
-            case 0:
+            case 1:
                 ++onePercent;
                 OnPropertyChanged("onePercent");
                 break;
-            case 1:
+            case 2:
                 ++LGBT;
                 OnPropertyChanged("LGBT");
                 break;
-            case 2:
+            case 3:
                 ++etnics;
                 OnPropertyChanged("etnics");
                 break;
@@ -160,20 +161,137 @@ public class Player : INotifyPropertyChanged
         var columnNum = int.Parse(column);
         switch (columnNum)
         {
-            case 0:
+            case 1:
                 --onePercent;
                 OnPropertyChanged("onePercent");
                 break;
-            case 1:
+            case 2:
                 --LGBT;
                 OnPropertyChanged("LGBT");
                 break;
-            case 2:
+            case 3:
                 --etnics;
                 OnPropertyChanged("etnics");
                 break;
         }
         
+    }
+
+    /**
+     * Adds card to player
+     */
+    public void AddCardToPlayer(Card card)
+    {
+        //todo check duplicity?
+        
+        Cards.Add(card);
+        OnPropertyChanged("Cards");
+        money -= card.Cost;
+        OnPropertyChanged("money");
+
+        foreach (var instantAction in card.Instant)
+        {
+            AddToColumn(instantAction);
+        }
+    }
+
+    /**
+     * Plays cards on new turn
+     */
+    public void NewRoundPlayer()
+    {
+        foreach (var card in Cards)
+        {
+            foreach (var newRoundAction in card.OnRoundStart)
+            {
+                AddToColumn(newRoundAction);
+            }
+        }
+        OnPropertyChanged("Cards");
+    }
+
+    /**
+     * Adds specified value to specified column
+     */
+    private void AddToColumn(Tuple<int, int> pair)
+    {
+        var columnNum = pair.Item1;
+        var value = pair.Item2;
+        switch (columnNum)
+        {
+            case 0:
+                money += value;
+                OnPropertyChanged("money");
+                break;
+            case 1:
+                onePercent += value;
+                OnPropertyChanged("onePercent");
+                break;
+            case 2:
+                LGBT += value;
+                OnPropertyChanged("LGBT");
+                break;
+            case 3:
+                etnics += value;
+                OnPropertyChanged("etnics");
+                break;
+            case 4:
+                smallBussiness += value;
+                OnPropertyChanged("smallBussiness");
+                break;
+            case 5:
+                students += value;
+                OnPropertyChanged("students");
+                break;
+            case 6:
+                elderly += value;
+                OnPropertyChanged("elderly");
+                break;
+            case 7:
+                proletariat += value;
+                OnPropertyChanged("proletariat");
+                break;
+            case 8:
+                families += value;
+                OnPropertyChanged("families");
+                break;
+            case 9:
+                samozivitele += value;
+                OnPropertyChanged("samozivitele");
+                break;
+            case 10:
+                unemployed += value;
+                OnPropertyChanged("unemployed");
+                break;
+            case 11:
+                inteligence += value;
+                OnPropertyChanged("inteligence");
+                break;
+            case 12:
+                agrary += value;
+                OnPropertyChanged("agrary");
+                break;
+            case 13:
+                religious += value;
+                OnPropertyChanged("religious");
+                break;
+            case 14:
+                patriots += value;
+                OnPropertyChanged("patriots");
+                break;
+            case 15:
+                soldiers += value;
+                OnPropertyChanged("soldiers");
+                break;
+            case 16:
+                emigrants += value;
+                OnPropertyChanged("emigrants");
+                break;
+            case 17:
+                officers += value;
+                OnPropertyChanged("officers");
+                break;
+        }
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
