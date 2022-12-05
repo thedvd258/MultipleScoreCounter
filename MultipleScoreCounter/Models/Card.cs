@@ -9,6 +9,9 @@ public class Card : INotifyPropertyChanged
     public Card(string name)
     {
         Name = name;
+        Cost = 0; //todo in constructor
+        Instant = new List<KeyValuePair<int, int>>(); //todo in constructor
+        OnRoundStart = new List<KeyValuePair<int, int>>(); //todo in constructor
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -17,19 +20,21 @@ public class Card : INotifyPropertyChanged
      * Nazev
      */
     public string Name { get; set; }
-    
+
     /**
      * Cena
      */
-    
+    public int Cost;
+
     /**
      * Prida ihned
      */
-    
+    public List<KeyValuePair<int, int>> Instant;
+
     /**
      * Prida za kolo
      */
-    
+    public List<KeyValuePair<int, int>> OnRoundStart;
     
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
