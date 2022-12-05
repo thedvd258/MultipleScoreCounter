@@ -3,10 +3,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:views="clr-namespace:MultipleScoreCounter.Views"
-             mc:Ignorable="d" d:DesignWidth="100" d:DesignHeight="50"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="500"
              x:Class="MultipleScoreCounter.Views.GameView"
              Icon="/Assets/avalonia-logo.ico"
              Title="Game"
+             Width="1920"
+             Height="1000"
+             HasSystemDecorations="False"
+             WindowState="Maximized"
+             Topmost="True"
              MinWidth="500"
              MinHeight="100">
 
@@ -37,8 +42,9 @@
             <Separator/>
             <MenuItem Header="_Zavřít hru" Command="{Binding ExitCommand}"/>
         </Menu>
-        <Panel>
-            <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <StackPanel>
+            
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" MaxHeight="800">
                 <StackPanel>
                     <ListBox Items="{Binding Players}" VerticalAlignment="Top">
                         <ListBox.ItemTemplate>
@@ -290,6 +296,7 @@
                     <!--<ScrollBar Orientation="Horizontal" />-->
                 </StackPanel>
             </ScrollViewer>
+            
             <!--<ScrollViewer VerticalScrollBarVisibility="Auto">-->
                 <StackPanel Orientation="Horizontal">
                     <ItemsRepeater Items="{Binding Cards}" Height="90"  VerticalAlignment="Bottom" Background="Black">
@@ -319,7 +326,8 @@
                         </ItemsRepeater.ItemTemplate>
                     </ItemsRepeater>
                 </StackPanel>
+            
             <!--</ScrollViewer>-->
-        </Panel>
+        </StackPanel>
     </DockPanel>
 </Window>
