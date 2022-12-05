@@ -44,6 +44,9 @@ namespace MultipleScoreCounter.ViewModels
         //    OnPropertyChanged("Players");
         //}
 
+        // todo cards scrollable
+        // todo round counter
+        
         /**
          * Starts new round in current game
          */

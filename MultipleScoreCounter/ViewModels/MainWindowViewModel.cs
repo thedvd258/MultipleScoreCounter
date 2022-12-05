@@ -66,15 +66,11 @@ namespace MultipleScoreCounter.ViewModels
         {
             cardDatabase.Add(new Card(
                 "Název",
-                0, /*cena koupeni*/
+                -3, /*cena koupeni*/
                 2, /*cena spaleni*/
-                //kdyz se zahraje
-                new List<Tuple<int, int>>{ /* dvojice sloupec a kolik prida*/
-                    Tuple.Create(0,3), // prida do sloupce 0: +3
-                },
                 //pri startu kola
                 new List<Tuple<int, int>>{ /* dvojice sloupec a kolik prida*/
-                    Tuple.Create(0,-6), // odebere ze sloupce 1: -3
+                    //Tuple.Create(0,-6), // odebere ze sloupce 1: -3
                     Tuple.Create(1,-3), // odebere ze sloupce 1: -3
                     Tuple.Create(4,13), // prida do sloupce 4: 13
                 }));
@@ -109,9 +105,6 @@ namespace MultipleScoreCounter.ViewModels
             };
             window.ShowDialog(ownerWindow);
         }
-        
-        
-
 
         /**
          * Start a previous game

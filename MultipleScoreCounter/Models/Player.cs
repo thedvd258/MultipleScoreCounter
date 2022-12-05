@@ -216,11 +216,7 @@ public class Player : INotifyPropertyChanged
         //OnPropertyChanged("Cards");
         
         money -= card.Cost;
-        
-        foreach (var instantAction in card.Instant)
-        {
-            AddToColumn(instantAction);
-        }
+        OnPropertyChanged("money");
     }
 
     /**

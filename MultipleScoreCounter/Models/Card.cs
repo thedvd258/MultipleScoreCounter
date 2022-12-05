@@ -9,17 +9,11 @@ namespace MultipleScoreCounter.Models;
 
 public sealed class Card : INotifyPropertyChanged
 {
-    public Card(string name, int cost, int costBurn, List<Tuple<int,int>> instant, List<Tuple<int,int>> roundStart)
+    public Card(string name, int cost, int costBurn, List<Tuple<int,int>> roundStart)
     {
         Name = name;
         Cost = cost;
-        
-        Instant = new List<Tuple<int,int>>();
-        foreach (var pair in instant)
-        {
-            Instant.Add(pair);
-        }
-         
+
         OnRoundStart = new List<Tuple<int,int>>();
         foreach (var pair in roundStart)
         {
@@ -50,11 +44,6 @@ public sealed class Card : INotifyPropertyChanged
             return "Cena: " + Cost.ToString();
         }
     }
-
-    /**
-     * Prida ihned
-     */
-    public List<Tuple<int, int>> Instant;
 
     /**
      * Prida za kolo
