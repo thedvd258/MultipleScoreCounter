@@ -304,7 +304,7 @@
                                     ToolTip.Tip="Cards description."><!-- TODO Bind cards description -->
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Classes="blackH2" Text="{Binding Name}"/>
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Cost: X"/><!-- TODO Bind cost of cards -->
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Cost}"/><!-- TODO Bind cost of cards -->
                                     <Separator MinHeight="5"/>
                                     <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Play" />
                                 </StackPanel>

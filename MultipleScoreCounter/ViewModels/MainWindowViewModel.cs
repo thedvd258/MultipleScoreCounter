@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Reactive;
@@ -63,9 +64,31 @@ namespace MultipleScoreCounter.ViewModels
 
         private void fillCardDatabase()
         {
-            cardDatabase.Add(new Card("Card 1"));
-            cardDatabase.Add(new Card("Card 2"));
-            cardDatabase.Add(new Card("Card 3"));
+            int[] theArray = { 1, 3, 5, 7, 9 };
+            cardDatabase.Add(new Card("Card 1", 1, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,3),
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,-3),
+                }));
+            cardDatabase.Add(new Card("Card 2", 2, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Card 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
         }
         
         /**

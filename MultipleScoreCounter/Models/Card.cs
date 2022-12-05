@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -6,12 +7,22 @@ namespace MultipleScoreCounter.Models;
 
 public class Card : INotifyPropertyChanged
 {
-    public Card(string name)
+    public Card(string name, int cost, List<Tuple<int,int>> instant, List<Tuple<int,int>> roundStart)
     {
         Name = name;
-        Cost = 0; //todo in constructor
-        Instant = new List<KeyValuePair<int, int>>(); //todo in constructor
-        OnRoundStart = new List<KeyValuePair<int, int>>(); //todo in constructor
+        Cost = cost;
+        
+        Instant = new List<Tuple<int,int>>();
+        foreach (var pair in instant)
+        {
+            Instant.Add(pair);
+        }
+         
+        OnRoundStart = new List<Tuple<int,int>>();
+        foreach (var pair in roundStart)
+        {
+            OnRoundStart.Add(pair);
+        }
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -24,17 +35,17 @@ public class Card : INotifyPropertyChanged
     /**
      * Cena
      */
-    public int Cost;
+    public int Cost { get; set; }
 
     /**
      * Prida ihned
      */
-    public List<KeyValuePair<int, int>> Instant;
+    public List<Tuple<int, int>> Instant;
 
     /**
      * Prida za kolo
      */
-    public List<KeyValuePair<int, int>> OnRoundStart;
+    public List<Tuple<int, int>> OnRoundStart;
     
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {

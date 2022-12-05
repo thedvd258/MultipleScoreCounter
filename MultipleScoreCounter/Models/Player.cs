@@ -132,7 +132,7 @@ public class Player : INotifyPropertyChanged
         onePercent = LGBT = etnics = smallBussiness = students = elderly = proletariat = families = samozivitele = unemployed = inteligence = agrary = religious = patriots = soldiers = officers = emigrants = 0;
         
         Cards = new List<Card>();
-        Cards.Add(new Card("Card 1"));
+        //Cards.Add(new Card("Card 1",1));
     }
 
     private void AddOne(string column)
