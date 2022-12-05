@@ -21,7 +21,31 @@ namespace MultipleScoreCounter.ViewModels
         public ObservableCollection<Card> Cards { get; }
         
         public List<Player> Players { get;}
-        
+
+        private Player? _selectedPlayer;
+        private int? _selectedPlayerNum;
+        public Player? SelectedPlayer
+        {
+            get => _selectedPlayer;
+            set {
+                _selectedPlayer = value;
+                _selectedPlayerNum = value?.Number;
+                OnPropertyChanged("_selectedPlayer");
+                OnPropertyChanged("_selectedPlayerNum");
+            }
+        }
+
+        /**
+         * Starts new round in current game
+         */
+        public void StartNewRound()
+        {
+            foreach (var player in Players)
+            {
+                player.NewRoundPlayer();
+            }
+        }
+
         public GameViewModel(IEnumerable<Player> items, IEnumerable<Card> cards)
         {
             Cards = new ObservableCollection<Card>(cards);

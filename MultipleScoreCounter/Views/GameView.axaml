@@ -38,7 +38,7 @@
     
     <DockPanel>
         <Menu HorizontalAlignment="Right" DockPanel.Dock="Top">
-            <MenuItem Header="_Nové kolo"/>
+            <MenuItem Header="_Nové kolo" Command="{Binding StartNewRound}"/>
             <Separator/>
             <MenuItem Header="_Zavřít hru" Command="{Binding ExitCommand}"/>
         </Menu>
@@ -46,7 +46,7 @@
             
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" MaxHeight="800">
                 <StackPanel>
-                    <ListBox Items="{Binding Players}" VerticalAlignment="Top" MaxHeight="800">
+                    <ListBox Name="Players" Items="{Binding Players}" VerticalAlignment="Top" MaxHeight="800" SelectedItem="{Binding SelectedPlayer}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <!-- Panel with score boxes -->
@@ -271,9 +271,9 @@
                                     </Border>
                                     
                                     <!-- Players Cards -->
-                                    <ItemsRepeater Items="{Binding Cards}" Height="65"  VerticalAlignment="Center" HorizontalAlignment="Right" Background="Black">
+                                    <ItemsRepeater Items="{Binding Cards}" Height="65"  VerticalAlignment="Center" HorizontalAlignment="Right">
                                         <ItemsRepeater.Layout>
-                                            <StackLayout Spacing="20" Orientation="Horizontal" />
+                                            <StackLayout Spacing="5" Orientation="Horizontal" />
                                         </ItemsRepeater.Layout>
                                         <ItemsRepeater.ItemTemplate>
                                             <DataTemplate>
@@ -319,7 +319,7 @@
                                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Classes="blackH2" Text="{Binding Name}"/>
                                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Cost}"/><!-- TODO Bind cost of cards -->
                                         <Separator MinHeight="5"/>
-                                        <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Play" />
+                                        <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Play" CommandParameter="{Binding $parent[ItemsRepeater].Items[0]}" Command="{Binding #Players.SelectedItem.PlayCard}"/>
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>

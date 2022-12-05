@@ -136,6 +136,14 @@ public class Player : INotifyPropertyChanged
         //Cards.Add(new Card("Card 1",1));
     }
 
+    public void PlayCard(Card? card)
+    {
+        if (card is not null)
+        {
+            AddCardToPlayer(card);
+        }
+    }
+
     private void AddOne(string column)
     {
         var columnNum = int.Parse(column);
@@ -185,14 +193,16 @@ public class Player : INotifyPropertyChanged
         //todo check duplicity?
         
         Cards.Add(card);
-        OnPropertyChanged("Cards");
         money -= card.Cost;
-        OnPropertyChanged("money");
-
+        
         foreach (var instantAction in card.Instant)
         {
             AddToColumn(instantAction);
         }
+        
+        OnPropertyChanged("money");
+        OnPropertyChanged("Cards");
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Player)));
     }
 
     /**
