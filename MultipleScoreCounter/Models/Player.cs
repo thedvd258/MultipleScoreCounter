@@ -251,6 +251,12 @@ public class Player : INotifyPropertyChanged
                 OnPropertyChanged("money");
                 break;
             case 1:
+                //todo priklad minima 
+                if (onePercent <= -25)
+                {
+                    onePercent = 25; 
+                    return;
+                }
                 onePercent += value;
                 OnPropertyChanged("onePercent");
                 break;
