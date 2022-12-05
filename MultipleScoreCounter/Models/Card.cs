@@ -13,7 +13,22 @@ public class Card : INotifyPropertyChanged
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
+    /**
+     * Nazev
+     */
     public string Name { get; set; }
+    
+    /**
+     * Cena
+     */
+    
+    /**
+     * Prida ihned
+     */
+    
+    /**
+     * Prida za kolo
+     */
     
     
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
