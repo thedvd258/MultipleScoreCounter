@@ -46,7 +46,7 @@
             
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" MaxHeight="800">
                 <StackPanel>
-                    <ListBox Items="{Binding Players}" VerticalAlignment="Top">
+                    <ListBox Items="{Binding Players}" VerticalAlignment="Top" MaxHeight="800">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <!-- Panel with score boxes -->
