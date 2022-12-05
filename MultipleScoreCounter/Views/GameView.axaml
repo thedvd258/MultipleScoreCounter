@@ -38,8 +38,6 @@
     
     <DockPanel>
         <Menu HorizontalAlignment="Right" DockPanel.Dock="Top">
-            <MenuItem Header="_Refresh" Command="{Binding Refresh}"/>
-            <Separator/>
             <MenuItem Header="_Nové kolo" Command="{Binding StartNewRound}"/>
             <Separator/>
             <MenuItem Header="_Zavřít hru" Command="{Binding ExitCommand}"/>
@@ -285,7 +283,6 @@
                                                         CornerRadius="1"
                                                         Padding="4"
                                                         MaxWidth="150">
-                                                        <!--ToolTip.Tip="Cards description."> TODO cards description -->
                                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Name}"/>
                                                 </Border>
                                             </DataTemplate>
@@ -314,14 +311,13 @@
                                         CornerRadius="3"
                                         Padding="4"
                                         MinWidth="100"
-                                        MinHeight="85"
-                                        ToolTip.Tip="Cards description."><!-- TODO Bind cards description -->
+                                        MinHeight="85">
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock HorizontalAlignment="Center" MinHeight="14" IsVisible="True" VerticalAlignment="Top" Classes="blackH2" Text="{Binding Name}"/>
                                         <Separator MinHeight="3"/>
-                                        <TextBlock HorizontalAlignment="Center" MinHeight="10" IsVisible="True" VerticalAlignment="Center" Text="{Binding Cost}"/>
+                                        <TextBlock HorizontalAlignment="Center" MinHeight="10" IsVisible="True" VerticalAlignment="Center" Text="{Binding CostText}"/>
                                         <Separator MinHeight="5"/>
-                                        <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Play" CommandParameter="{Binding #Players.SelectedItem}" Command="{Binding PlayThisCard}"/>
+                                        <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Zahrát" CommandParameter="{Binding #Players.SelectedItem}" Command="{Binding PlayThisCard}"/>
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>

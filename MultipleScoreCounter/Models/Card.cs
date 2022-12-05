@@ -39,6 +39,13 @@ public sealed class Card : INotifyPropertyChanged
      */
     public int Cost { get; set; }
 
+    public string CostText {
+        get
+        {
+            return "Cena: " + Cost.ToString();
+        }
+    }
+
     /**
      * Prida ihned
      */

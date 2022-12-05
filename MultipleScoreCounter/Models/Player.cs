@@ -137,7 +137,7 @@ public class Player : INotifyPropertyChanged
         Number = number;
         AddOneCommand = ReactiveCommand.Create<string>(AddOne);
         RemoveOneCommand = ReactiveCommand.Create<string>(RemoveOne);
-        money = 0;
+        money = 20;
         onePercent = LGBT = etnics = smallBussiness = students = elderly = proletariat = families = samozivitele = unemployed = inteligence = agrary = religious = patriots = soldiers = officers = emigrants = 0;
 
         CardsCollection = new ObservableCollection<Card>();
@@ -147,8 +147,14 @@ public class Player : INotifyPropertyChanged
 
     public void PlayCard(Card? card)
     {
+        //todo burn karet - cena spaleni kart
+        
         if (card is not null)
         {
+            if (Cards.Contains(card))
+            {
+                return;
+            }
             AddCardToPlayer(card);
             CardsCollection.Add(card);
         }
@@ -206,8 +212,6 @@ public class Player : INotifyPropertyChanged
      */
     public void AddCardToPlayer(Card card)
     {
-        //todo check duplicity?
-        
         Cards.Add(card);
         //OnPropertyChanged("Cards");
         
