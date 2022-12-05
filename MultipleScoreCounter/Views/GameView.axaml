@@ -38,281 +38,288 @@
             <MenuItem Header="_Zavřít hru" Command="{Binding ExitCommand}"/>
         </Menu>
         <Panel>
-            <ListBox Items="{Binding Players}" VerticalAlignment="Top">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <!-- Panel with score boxes -->
-                        <StackPanel Orientation="Horizontal" Spacing="5">
-                            <Border  Padding="4" Height="30">
-                                <TextBox Text="{Binding Name}"/>
-                            </Border>
-                            <Separator MinWidth="20"/>
-                            <Border Background="Yellow"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <ListBox Items="{Binding Players}" VerticalAlignment="Top">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <!-- Panel with score boxes -->
+                                <StackPanel Orientation="Horizontal" Spacing="5">
+                                    <Border  Padding="4" Height="30">
+                                        <TextBox Text="{Binding Name}"/>
+                                    </Border>
+                                    <Separator MinWidth="20"/>
+                                    <Border Background="Yellow"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Peníze" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding money}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="Blue"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="“1%”" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding onePercent}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="Red"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="LGBT" Classes="blackH2"/>
+                                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding LGBT}"/>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="Green"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Etnika" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding etnics}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="Coral"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Malopodnikatelé" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding smallBussiness}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="Cyan"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Studenti" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding students}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="DarkOrchid"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Důchodci" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding elderly}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="FireBrick"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Proletariát" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding proletariat}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="ForestGreen"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Rodiny" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding families}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="MediumAquaMarine"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Samoživitelé" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding samozivitele}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="NavajoWhite"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Nezaměstnaní" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding unemployed}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="Pink"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Inteligence" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding inteligence}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="SkyBlue"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Agrárníci" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding agrary}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="Thistle"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Věříci" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding religious}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="WhiteSmoke"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Vlastenci" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding patriots}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="Violet"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Vojáci" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding soldiers}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="Gold"
+                                            BorderBrush="Black"
+                                            BorderThickness="2"
+                                            CornerRadius="3"
+                                            Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Emigranti" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding emigrants}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="DarkOliveGreen"
+                                                     BorderBrush="Black"
+                                                     BorderThickness="2"
+                                                     CornerRadius="3"
+                                                     Padding="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Úředníci" Classes="blackH2"/>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding officers}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Players Cards -->
+                                    <ItemsRepeater Items="{Binding Cards}" Height="65"  VerticalAlignment="Center" HorizontalAlignment="Right" Background="Black">
+                                        <ItemsRepeater.Layout>
+                                            <StackLayout Spacing="20" Orientation="Horizontal" />
+                                        </ItemsRepeater.Layout>
+                                        <ItemsRepeater.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Background="Coral"
+                                                        BorderBrush="Black"
+                                                        BorderThickness="1"
+                                                        CornerRadius="1"
+                                                        Padding="4"
+                                                        MaxWidth="150">
+                                                        <!--ToolTip.Tip="Cards description."> TODO cards description -->
+                                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Name}"/>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsRepeater.ItemTemplate>
+                                    </ItemsRepeater>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <!--<ScrollBar Orientation="Horizontal" />-->
+                </StackPanel>
+            </ScrollViewer>
+            <!--<ScrollViewer VerticalScrollBarVisibility="Auto">-->
+                <StackPanel Orientation="Horizontal">
+                    <ItemsRepeater Items="{Binding Cards}" Height="90"  VerticalAlignment="Bottom" Background="Black">
+                        <ItemsRepeater.Layout>
+                            <StackLayout Spacing="20" Orientation="Horizontal" />
+                        </ItemsRepeater.Layout>
+                        <ItemsRepeater.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="Coral"
+                                        BorderBrush="Black"
+                                        BorderThickness="2"
+                                        CornerRadius="3"
+                                        Padding="4"
+                                        MaxWidth="150"
+                                        MinWidth="100"
+                                        MinHeight="85"
+                                        MaxHeight="90"
+                                        ToolTip.Tip="Cards description."><!-- TODO Bind cards description -->
                                     <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Peníze" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding money}"/>
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Classes="blackH2" Text="{Binding Name}"/>
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Cost}"/><!-- TODO Bind cost of cards -->
+                                        <Separator MinHeight="5"/>
+                                        <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Play" />
                                     </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="Blue"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="“1%”" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding onePercent}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="Red"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="LGBT" Classes="blackH2"/>
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding LGBT}"/>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="Green"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Etnika" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding etnics}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="Coral"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Malopodnikatelé" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding smallBussiness}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="Cyan"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Studenti" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding students}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="DarkOrchid"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Důchodci" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding elderly}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="FireBrick"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Proletariát" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding proletariat}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="ForestGreen"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Rodiny" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding families}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="MediumAquaMarine"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Samoživitelé" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding samozivitele}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="NavajoWhite"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Nezaměstnaní" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding unemployed}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="Pink"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Inteligence" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding inteligence}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="SkyBlue"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Agrárníci" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding agrary}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="Thistle"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Věříci" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding religious}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="WhiteSmoke"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Vlastenci" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding patriots}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="Violet"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Vojáci" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding soldiers}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="Gold"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Emigranti" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding emigrants}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            <Border Background="DarkOliveGreen"
-                                             BorderBrush="Black"
-                                             BorderThickness="2"
-                                             CornerRadius="3"
-                                             Padding="4">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Úředníci" Classes="blackH2"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Classes="blackH1" Text="{Binding officers}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                            
-                            <!-- Players Cards -->
-                            <ItemsRepeater Items="{Binding Cards}" Height="65"  VerticalAlignment="Center" HorizontalAlignment="Right" Background="Black">
-                                <ItemsRepeater.Layout>
-                                    <StackLayout Spacing="20" Orientation="Horizontal" />
-                                </ItemsRepeater.Layout>
-                                <ItemsRepeater.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border Background="Coral"
-                                                BorderBrush="Black"
-                                                BorderThickness="1"
-                                                CornerRadius="1"
-                                                Padding="4"
-                                                MaxWidth="150">
-                                                <!--ToolTip.Tip="Cards description."> TODO cards description -->
-                                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Name}"/>
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsRepeater.ItemTemplate>
-                            </ItemsRepeater>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-            <StackPanel Orientation="Horizontal">
-                <ItemsRepeater Items="{Binding Cards}" Height="90"  VerticalAlignment="Bottom" Background="Black">
-                    <ItemsRepeater.Layout>
-                        <StackLayout Spacing="20" Orientation="Horizontal" />
-                    </ItemsRepeater.Layout>
-                    <ItemsRepeater.ItemTemplate>
-                        <DataTemplate>
-                            <Border Background="Coral"
-                                    BorderBrush="Black"
-                                    BorderThickness="2"
-                                    CornerRadius="3"
-                                    Padding="4"
-                                    MaxWidth="150"
-                                    MinWidth="100"
-                                    MinHeight="85"
-                                    MaxHeight="90"
-                                    ToolTip.Tip="Cards description."><!-- TODO Bind cards description -->
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Classes="blackH2" Text="{Binding Name}"/>
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Cost}"/><!-- TODO Bind cost of cards -->
-                                    <Separator MinHeight="5"/>
-                                    <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Play" />
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsRepeater.ItemTemplate>
-                </ItemsRepeater>
-            </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsRepeater.ItemTemplate>
+                    </ItemsRepeater>
+                </StackPanel>
+            <!--</ScrollViewer>-->
         </Panel>
     </DockPanel>
 </Window>
