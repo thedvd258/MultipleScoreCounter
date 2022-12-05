@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Reactive;
 using System.Runtime.CompilerServices;
@@ -119,8 +120,14 @@ public class Player : INotifyPropertyChanged
     /**
      * Players active cards
      */
-    public List<Card> Cards { get; set; }
-    
+    public List<Card> Cards
+    {
+        get;
+        set;
+    }
+
+    public ObservableCollection<Card> CardsCollection { get; set; }
+
     public ReactiveCommand<string, Unit> AddOneCommand { get; }
     public ReactiveCommand<string, Unit> RemoveOneCommand { get; }
 
@@ -132,7 +139,8 @@ public class Player : INotifyPropertyChanged
         RemoveOneCommand = ReactiveCommand.Create<string>(RemoveOne);
         money = 0;
         onePercent = LGBT = etnics = smallBussiness = students = elderly = proletariat = families = samozivitele = unemployed = inteligence = agrary = religious = patriots = soldiers = officers = emigrants = 0;
-        
+
+        CardsCollection = new ObservableCollection<Card>();
         Cards = new List<Card>();
         //Cards.Add(new Card("Card 1",1));
     }
@@ -142,7 +150,14 @@ public class Player : INotifyPropertyChanged
         if (card is not null)
         {
             AddCardToPlayer(card);
+            CardsCollection.Add(card);
         }
+        
+        foreach (var cardRef in Cards)
+        {
+            cardRef.Refresh();
+        }
+        OnPropertyChanged("CardsCollection");
     }
 
     private void AddOne(string column)
@@ -194,17 +209,14 @@ public class Player : INotifyPropertyChanged
         //todo check duplicity?
         
         Cards.Add(card);
+        //OnPropertyChanged("Cards");
+        
         money -= card.Cost;
         
         foreach (var instantAction in card.Instant)
         {
             AddToColumn(instantAction);
         }
-        
-        OnPropertyChanged("money");
-        OnPropertyChanged("Cards");
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Player)));
-        Dispatcher.UIThread.InvokeAsync(() => OnPropertyChanged("Players"));
     }
 
     /**
@@ -219,7 +231,6 @@ public class Player : INotifyPropertyChanged
                 AddToColumn(newRoundAction);
             }
         }
-        OnPropertyChanged("Cards");
     }
 
     /**

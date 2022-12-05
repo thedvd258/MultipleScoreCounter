@@ -64,7 +64,6 @@ namespace MultipleScoreCounter.ViewModels
 
         private void fillCardDatabase()
         {
-            int[] theArray = { 1, 3, 5, 7, 9 };
             cardDatabase.Add(new Card("Card 1", 1, 
                 new List<Tuple<int, int>>{
                     Tuple.Create(0,3),
@@ -81,6 +80,277 @@ namespace MultipleScoreCounter.ViewModels
                     Tuple.Create(1,1)
                 }));
             cardDatabase.Add(new Card("Card 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            //----
+            cardDatabase.Add(new Card("Card 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("xd", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,100),
+                    Tuple.Create(1,100)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Card 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("ZZrd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Card 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Mard 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Fard 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Rard 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Dard 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Card 0", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Zard 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Card 31", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Aard 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Aard 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Aard 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("Lak", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NULL", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NaDd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NaDd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NaDd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NaDd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NaDd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NaDd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NaDd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NaDd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NaDd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NaDd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NaDd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("NaDd 3", 3, 
+                new List<Tuple<int, int>>{
+                    Tuple.Create(0,0),
+                    Tuple.Create(1,0)
+                },
+                new List<Tuple<int, int>>{
+                    Tuple.Create(1,1),
+                    Tuple.Create(1,1)
+                }));
+            cardDatabase.Add(new Card("AAAA", 3, 
                 new List<Tuple<int, int>>{
                     Tuple.Create(0,0),
                     Tuple.Create(1,0)
@@ -106,6 +376,7 @@ namespace MultipleScoreCounter.ViewModels
             if (cardDatabase.Count <= 0)
             {
                 fillCardDatabase();
+                cardDatabase.Sort(((cardLower, cardHigher) => (String.Compare(cardLower.Name, cardHigher.Name, StringComparison.Ordinal))));
             }
 
             _firstGame = false;

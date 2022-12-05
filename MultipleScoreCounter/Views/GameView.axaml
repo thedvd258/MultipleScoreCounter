@@ -38,6 +38,8 @@
     
     <DockPanel>
         <Menu HorizontalAlignment="Right" DockPanel.Dock="Top">
+            <MenuItem Header="_Refresh" Command="{Binding Refresh}"/>
+            <Separator/>
             <MenuItem Header="_Nové kolo" Command="{Binding StartNewRound}"/>
             <Separator/>
             <MenuItem Header="_Zavřít hru" Command="{Binding ExitCommand}"/>
@@ -271,7 +273,7 @@
                                     </Border>
                                     
                                     <!-- Players Cards -->
-                                    <ItemsRepeater Items="{Binding Cards}" Height="65"  VerticalAlignment="Center" HorizontalAlignment="Right">
+                                    <ItemsRepeater Items="{Binding CardsCollection}" Height="65"  VerticalAlignment="Center" HorizontalAlignment="Right">
                                         <ItemsRepeater.Layout>
                                             <StackLayout Spacing="5" Orientation="Horizontal" />
                                         </ItemsRepeater.Layout>
@@ -298,10 +300,11 @@
             </ScrollViewer>
             
             <!--<ScrollViewer VerticalScrollBarVisibility="Auto">-->
-                <StackPanel Orientation="Horizontal">
-                    <ItemsRepeater Items="{Binding Cards}" Height="90"  VerticalAlignment="Bottom" Background="Black">
+                <UniformGrid>
+                    <ItemsRepeater Items="{Binding Cards}" VerticalAlignment="Bottom" Background="Black">
                         <ItemsRepeater.Layout>
-                            <StackLayout Spacing="20" Orientation="Horizontal" />
+                            <!--<StackLayout Spacing="20" Orientation="Horizontal"/>-->
+                            <UniformGridLayout Orientation="Horizontal" ItemsJustification="Center" />
                         </ItemsRepeater.Layout>
                         <ItemsRepeater.ItemTemplate>
                             <DataTemplate>
@@ -310,14 +313,13 @@
                                         BorderThickness="2"
                                         CornerRadius="3"
                                         Padding="4"
-                                        MaxWidth="150"
                                         MinWidth="100"
                                         MinHeight="85"
-                                        MaxHeight="90"
                                         ToolTip.Tip="Cards description."><!-- TODO Bind cards description -->
                                     <StackPanel Orientation="Vertical">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Classes="blackH2" Text="{Binding Name}"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Cost}"/><!-- TODO Bind cost of cards -->
+                                        <TextBlock HorizontalAlignment="Center" MinHeight="14" IsVisible="True" VerticalAlignment="Top" Classes="blackH2" Text="{Binding Name}"/>
+                                        <Separator MinHeight="3"/>
+                                        <TextBlock HorizontalAlignment="Center" MinHeight="10" IsVisible="True" VerticalAlignment="Center" Text="{Binding Cost}"/>
                                         <Separator MinHeight="5"/>
                                         <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Play" CommandParameter="{Binding #Players.SelectedItem}" Command="{Binding PlayThisCard}"/>
                                     </StackPanel>
@@ -325,7 +327,8 @@
                             </DataTemplate>
                         </ItemsRepeater.ItemTemplate>
                     </ItemsRepeater>
-                </StackPanel>
+                    
+                </UniformGrid>
             
             <!--</ScrollViewer>-->
         </StackPanel>

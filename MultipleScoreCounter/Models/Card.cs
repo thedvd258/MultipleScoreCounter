@@ -7,7 +7,7 @@ using Avalonia.Threading;
 
 namespace MultipleScoreCounter.Models;
 
-public class Card : INotifyPropertyChanged
+public sealed class Card : INotifyPropertyChanged
 {
     public Card(string name, int cost, List<Tuple<int,int>> instant, List<Tuple<int,int>> roundStart)
     {
@@ -52,16 +52,24 @@ public class Card : INotifyPropertyChanged
     public void PlayThisCard(Player? player)
     {
         player?.PlayCard(this);
-        OnPropertyChanged("Card");
-        Dispatcher.UIThread.InvokeAsync(() => OnPropertyChanged(nameof(Card)));
+        Refresh();
+        //OnPropertyChanged("Card");
+        //Dispatcher.UIThread.InvokeAsync(() => OnPropertyChanged(nameof(Card)));
     }
-    
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+
+    public void Refresh()
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Card"));
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Name));
+    }
+
+
+    private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
+    private bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
     {
         if (EqualityComparer<T>.Default.Equals(field, value)) return false;
         field = value;

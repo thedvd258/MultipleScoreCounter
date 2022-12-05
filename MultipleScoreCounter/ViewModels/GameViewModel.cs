@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Reactive;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using MultipleScoreCounter.Models;
@@ -23,17 +24,25 @@ namespace MultipleScoreCounter.ViewModels
         public List<Player> Players { get;}
 
         private Player? _selectedPlayer;
-        private int? _selectedPlayerNum;
         public Player? SelectedPlayer
         {
             get => _selectedPlayer;
             set {
                 _selectedPlayer = value;
-                _selectedPlayerNum = value?.Number;
                 OnPropertyChanged("_selectedPlayer");
-                OnPropertyChanged("_selectedPlayerNum");
             }
         }
+
+        //private async void updateViewRec()
+        //{
+        //    System.Threading.Thread.Sleep(1000);
+        //    updateView();
+        //    updateViewRec();
+        //}
+        //private async void updateView()
+        //{
+        //    OnPropertyChanged("Players");
+        //}
 
         /**
          * Starts new round in current game
@@ -46,12 +55,19 @@ namespace MultipleScoreCounter.ViewModels
             }
         }
 
+        public void Refresh()
+        {
+            OnPropertyChanged("Players");
+        }
+
         public GameViewModel(IEnumerable<Player> items, IEnumerable<Card> cards)
         {
             Cards = new ObservableCollection<Card>(cards);
             ExitCommand = ReactiveCommand.Create(Exit);
             Players = new List<Player>(items);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Players)));
+            //var updateViewThread = new Thread(updateViewRec);
+            //updateViewThread.Start();
         }
 
         
