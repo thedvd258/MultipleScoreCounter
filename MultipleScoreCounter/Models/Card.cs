@@ -1,7 +1,9 @@
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Avalonia.Threading;
 
 namespace MultipleScoreCounter.Models;
 
@@ -46,6 +48,13 @@ public class Card : INotifyPropertyChanged
      * Prida za kolo
      */
     public List<Tuple<int, int>> OnRoundStart;
+
+    public void PlayThisCard(Player? player)
+    {
+        player?.PlayCard(this);
+        OnPropertyChanged("Card");
+        Dispatcher.UIThread.InvokeAsync(() => OnPropertyChanged(nameof(Card)));
+    }
     
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {

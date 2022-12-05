@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reactive;
 using System.Runtime.CompilerServices;
+using Avalonia.Threading;
 using ReactiveUI;
 
 namespace MultipleScoreCounter.Models;
@@ -203,6 +204,7 @@ public class Player : INotifyPropertyChanged
         OnPropertyChanged("money");
         OnPropertyChanged("Cards");
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Player)));
+        Dispatcher.UIThread.InvokeAsync(() => OnPropertyChanged("Players"));
     }
 
     /**
