@@ -155,10 +155,10 @@ public class Player : INotifyPropertyChanged
             }
 
             // IF desired to block cards
-            //if (card.Cost > money)
-            //{
-            //    return;
-            //}
+            if (card.Cost > money)
+            {
+                return;
+            }
             AddCardToPlayer(card);
             CardsCollection.Add(card);
         }
@@ -175,6 +175,12 @@ public class Player : INotifyPropertyChanged
         if (card is not null)
         {
             if (!Cards.Contains(card))
+            {
+                return;
+            }
+            
+            // IF desired to block cards
+            if (card.CostBurn > money)
             {
                 return;
             }
