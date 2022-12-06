@@ -10,6 +10,7 @@ using MultipleScoreCounter.Models;
 using MultipleScoreCounter.Views;
 using ReactiveUI;
 
+
 namespace MultipleScoreCounter.ViewModels
 {
     public sealed class GameViewModel : INotifyPropertyChanged
@@ -22,11 +23,19 @@ namespace MultipleScoreCounter.ViewModels
         public ObservableCollection<Card> Cards { get; }
         
         public int RoundNumber { get; set; }
+        
+        
+        private bool CanStartRound { get; set; }
+        private string ProblemPlayer { get; set; }
 
         public string RoundText
         {
             get
             {
+                if (!CanStartRound)
+                {
+                    return "Nelze spustit další kolo, hráč " + ProblemPlayer + " by šel do mínusu.";
+                }
                 return  RoundNumber.ToString() + ". kolo";
             }
         }
@@ -48,6 +57,13 @@ namespace MultipleScoreCounter.ViewModels
          */
         public void StartNewRound()
         {
+            if (!TryStartNewRound())
+            {
+                OnPropertyChanged("RoundNumber");
+                OnPropertyChanged("RoundText");
+                return;
+            }
+            
             foreach (var player in Players)
             {
                 player.NewRoundPlayer();
@@ -56,7 +72,37 @@ namespace MultipleScoreCounter.ViewModels
             ++RoundNumber;
             OnPropertyChanged("RoundNumber");
             OnPropertyChanged("RoundText");
+
         }
+
+        /**
+         * Tries to start new round
+         */
+        private bool TryStartNewRound()
+        {
+            bool MoneyNegative = false;
+            foreach (var player in Players)
+            {
+                if (player.TryNewRoundPlayer())
+                {
+                    ProblemPlayer = player.Name;
+                    OnPropertyChanged(nameof(ProblemPlayer));
+                    MoneyNegative = true;
+                }
+            }
+
+            CanStartRound = !MoneyNegative;
+            OnPropertyChanged(nameof(CanStartRound));
+            return CanStartRound;
+        }
+
+
+        public void removePlayer(Player player)
+        {
+            Players.Remove(player);
+        }
+        
+        
 
         public void Refresh()
         {
@@ -70,6 +116,8 @@ namespace MultipleScoreCounter.ViewModels
             Players = new List<Player>(items);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Players)));
             RoundNumber = 1;
+            CanStartRound = true;
+            ProblemPlayer = "error";
         }
 
         

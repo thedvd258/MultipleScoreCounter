@@ -252,6 +252,24 @@ public class Player : INotifyPropertyChanged
         }
     }
 
+    public bool TryNewRoundPlayer()
+    {
+        var MoneyTMP = money;
+        foreach (var card in Cards)
+        {
+            foreach (var newRoundAction in card.OnRoundStart)
+            {
+                if (newRoundAction.Item1 == 0)
+                {
+                    MoneyTMP += newRoundAction.Item2;
+                }
+                
+            }
+        }
+
+        return MoneyTMP < 0;
+    }
+
     /**
      * Adds specified value to specified column
      */
