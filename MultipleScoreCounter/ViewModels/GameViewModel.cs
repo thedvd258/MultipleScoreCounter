@@ -40,7 +40,7 @@ namespace MultipleScoreCounter.ViewModels
             }
         }
 
-        public List<Player> Players { get;}
+        public ObservableCollection<Player> Players { get;}
 
         private Player? _selectedPlayer;
         public Player? SelectedPlayer
@@ -97,7 +97,7 @@ namespace MultipleScoreCounter.ViewModels
         }
 
 
-        public void removePlayer(Player player)
+        public void RemovePlayer(Player player)
         {
             Players.Remove(player);
         }
@@ -113,7 +113,7 @@ namespace MultipleScoreCounter.ViewModels
         {
             Cards = new ObservableCollection<Card>(cards);
             ExitCommand = ReactiveCommand.Create(Exit);
-            Players = new List<Player>(items);
+            Players = new ObservableCollection<Player>(items);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Players)));
             RoundNumber = 1;
             CanStartRound = true;

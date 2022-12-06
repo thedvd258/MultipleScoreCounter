@@ -153,6 +153,11 @@ public class Player : INotifyPropertyChanged
             {
                 return;
             }
+
+            if (card.Cost > money)
+            {
+                return;
+            }
             AddCardToPlayer(card);
             CardsCollection.Add(card);
         }

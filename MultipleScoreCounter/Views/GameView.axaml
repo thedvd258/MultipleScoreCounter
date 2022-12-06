@@ -38,6 +38,8 @@
     
     <DockPanel>
         <Menu HorizontalAlignment="Right" DockPanel.Dock="Top">
+            <MenuItem Header="_Odebrat označeného hráče" CommandParameter="{Binding #Players.SelectedItem}" Command="{Binding RemovePlayer}"/>
+            <Separator MinWidth="50"/>
             <TextBlock Text="{Binding RoundText}"/>
             <Separator/>
             <MenuItem Header="_Nové kolo" Command="{Binding StartNewRound}"/>
