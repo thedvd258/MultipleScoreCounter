@@ -318,7 +318,7 @@
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock HorizontalAlignment="Center" MinHeight="14" IsVisible="True" VerticalAlignment="Top" Classes="blackH2" Text="{Binding Name}"/>
                                         <Separator MinHeight="3"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" MinHeight="20">
                                             <TextBlock HorizontalAlignment="Center" MinHeight="10" IsVisible="True" VerticalAlignment="Center" Text="{Binding CostText}"/>
                                             <Separator MinWidth="10"/>
                                             <TextBlock HorizontalAlignment="Center" MinHeight="10" IsVisible="True" VerticalAlignment="Center" Text="{Binding BurnText}"/>
