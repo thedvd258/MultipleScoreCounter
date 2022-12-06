@@ -154,10 +154,11 @@ public class Player : INotifyPropertyChanged
                 return;
             }
 
-            if (card.Cost > money)
-            {
-                return;
-            }
+            // IF desired to block cards
+            //if (card.Cost > money)
+            //{
+            //    return;
+            //}
             AddCardToPlayer(card);
             CardsCollection.Add(card);
         }
