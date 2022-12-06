@@ -44,9 +44,9 @@
         </Menu>
         <StackPanel>
             
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" MaxHeight="800">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" MinHeight="620" MaxHeight="620" AllowAutoHide="False">
                 <StackPanel>
-                    <ListBox Name="Players" Items="{Binding Players}" VerticalAlignment="Top" MaxHeight="800" SelectedItem="{Binding SelectedPlayer}">
+                    <ListBox Name="Players" Items="{Binding Players}" VerticalAlignment="Top" MaxHeight="620" SelectedItem="{Binding SelectedPlayer}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <!-- Panel with score boxes -->
@@ -298,10 +298,11 @@
             
             <!--<ScrollViewer VerticalScrollBarVisibility="Auto">-->
                 <UniformGrid>
+                    <ScrollViewer  VerticalScrollBarVisibility="Auto" MaxHeight="370" AllowAutoHide="False">
                     <ItemsRepeater Items="{Binding Cards}" VerticalAlignment="Bottom" Background="Black">
                         <ItemsRepeater.Layout>
                             <!--<StackLayout Spacing="20" Orientation="Horizontal"/>-->
-                            <UniformGridLayout Orientation="Horizontal" ItemsJustification="Center" />
+                            <UniformGridLayout Orientation="Horizontal" ItemsJustification="Center" MaximumRowsOrColumns="4"/>
                         </ItemsRepeater.Layout>
                         <ItemsRepeater.ItemTemplate>
                             <DataTemplate>
@@ -310,7 +311,7 @@
                                         BorderThickness="2"
                                         CornerRadius="3"
                                         Padding="4"
-                                        MinWidth="100"
+                                        MinWidth="350"
                                         MinHeight="85">
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock HorizontalAlignment="Center" MinHeight="14" IsVisible="True" VerticalAlignment="Top" Classes="blackH2" Text="{Binding Name}"/>
@@ -323,7 +324,7 @@
                             </DataTemplate>
                         </ItemsRepeater.ItemTemplate>
                     </ItemsRepeater>
-                    
+                    </ScrollViewer>
                 </UniformGrid>
             
             <!--</ScrollViewer>-->
