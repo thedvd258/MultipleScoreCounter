@@ -13,6 +13,7 @@ public sealed class Card : INotifyPropertyChanged
     {
         Name = name;
         Cost = cost;
+        CostBurn = costBurn;
 
         OnRoundStart = new List<Tuple<int,int>>();
         foreach (var pair in roundStart)
@@ -41,7 +42,14 @@ public sealed class Card : INotifyPropertyChanged
     public string CostText {
         get
         {
-            return "Cena: " + Cost.ToString();
+            return "Cena zahrát: " + Cost.ToString();
+        }
+    }
+    
+    public string BurnText {
+        get
+        {
+            return "Cena zrušit: " + CostBurn.ToString();
         }
     }
 
@@ -53,6 +61,14 @@ public sealed class Card : INotifyPropertyChanged
     public void PlayThisCard(Player? player)
     {
         player?.PlayCard(this);
+        Refresh();
+        //OnPropertyChanged("Card");
+        //Dispatcher.UIThread.InvokeAsync(() => OnPropertyChanged(nameof(Card)));
+    }
+    
+    public void RemoveThisCard(Player? player)
+    {
+        player?.RemoveCard(this);
         Refresh();
         //OnPropertyChanged("Card");
         //Dispatcher.UIThread.InvokeAsync(() => OnPropertyChanged(nameof(Card)));

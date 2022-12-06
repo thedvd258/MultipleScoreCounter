@@ -21,6 +21,16 @@ namespace MultipleScoreCounter.ViewModels
         
         public ObservableCollection<Card> Cards { get; }
         
+        public int RoundNumber { get; set; }
+
+        public string RoundText
+        {
+            get
+            {
+                return  RoundNumber.ToString() + ". kolo";
+            }
+        }
+
         public List<Player> Players { get;}
 
         private Player? _selectedPlayer;
@@ -33,20 +43,6 @@ namespace MultipleScoreCounter.ViewModels
             }
         }
 
-        //private async void updateViewRec()
-        //{
-        //    System.Threading.Thread.Sleep(1000);
-        //    updateView();
-        //    updateViewRec();
-        //}
-        //private async void updateView()
-        //{
-        //    OnPropertyChanged("Players");
-        //}
-
-        // todo cards scrollable
-        // todo round counter
-        
         /**
          * Starts new round in current game
          */
@@ -56,6 +52,10 @@ namespace MultipleScoreCounter.ViewModels
             {
                 player.NewRoundPlayer();
             }
+
+            ++RoundNumber;
+            OnPropertyChanged("RoundNumber");
+            OnPropertyChanged("RoundText");
         }
 
         public void Refresh()
@@ -69,8 +69,7 @@ namespace MultipleScoreCounter.ViewModels
             ExitCommand = ReactiveCommand.Create(Exit);
             Players = new List<Player>(items);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Players)));
-            //var updateViewThread = new Thread(updateViewRec);
-            //updateViewThread.Start();
+            RoundNumber = 1;
         }
 
         

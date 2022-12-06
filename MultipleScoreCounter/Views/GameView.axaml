@@ -10,7 +10,7 @@
              Width="1920"
              Height="1000"
              HasSystemDecorations="False"
-             WindowState="Maximized"
+             WindowState="FullScreen"
              Topmost="True"
              MinWidth="500"
              MinHeight="100">
@@ -38,6 +38,8 @@
     
     <DockPanel>
         <Menu HorizontalAlignment="Right" DockPanel.Dock="Top">
+            <TextBlock Text="{Binding RoundText}"/>
+            <Separator/>
             <MenuItem Header="_Nové kolo" Command="{Binding StartNewRound}"/>
             <Separator/>
             <MenuItem Header="_Zavřít hru" Command="{Binding ExitCommand}"/>
@@ -298,7 +300,7 @@
             
             <!--<ScrollViewer VerticalScrollBarVisibility="Auto">-->
                 <UniformGrid>
-                    <ScrollViewer  VerticalScrollBarVisibility="Auto" MaxHeight="370" AllowAutoHide="False">
+                    <ScrollViewer  VerticalScrollBarVisibility="Auto" MaxHeight="390" AllowAutoHide="False">
                     <ItemsRepeater Items="{Binding Cards}" VerticalAlignment="Bottom" Background="Black">
                         <ItemsRepeater.Layout>
                             <!--<StackLayout Spacing="20" Orientation="Horizontal"/>-->
@@ -316,9 +318,16 @@
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock HorizontalAlignment="Center" MinHeight="14" IsVisible="True" VerticalAlignment="Top" Classes="blackH2" Text="{Binding Name}"/>
                                         <Separator MinHeight="3"/>
-                                        <TextBlock HorizontalAlignment="Center" MinHeight="10" IsVisible="True" VerticalAlignment="Center" Text="{Binding CostText}"/>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock HorizontalAlignment="Center" MinHeight="10" IsVisible="True" VerticalAlignment="Center" Text="{Binding CostText}"/>
+                                            <Separator MinWidth="10"/>
+                                            <TextBlock HorizontalAlignment="Center" MinHeight="10" IsVisible="True" VerticalAlignment="Center" Text="{Binding BurnText}"/>
+                                        </StackPanel> 
                                         <Separator MinHeight="5"/>
-                                        <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Zahrát" CommandParameter="{Binding #Players.SelectedItem}" Command="{Binding PlayThisCard}"/>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Zahrát" CommandParameter="{Binding #Players.SelectedItem}" Command="{Binding PlayThisCard}"/>
+                                            <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Zrušit" CommandParameter="{Binding #Players.SelectedItem}" Command="{Binding RemoveThisCard}"/>
+                                        </StackPanel>    
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>

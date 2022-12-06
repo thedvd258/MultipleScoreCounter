@@ -147,8 +147,6 @@ public class Player : INotifyPropertyChanged
 
     public void PlayCard(Card? card)
     {
-        //todo burn karet - cena spaleni kart
-        
         if (card is not null)
         {
             if (Cards.Contains(card))
@@ -157,6 +155,29 @@ public class Player : INotifyPropertyChanged
             }
             AddCardToPlayer(card);
             CardsCollection.Add(card);
+        }
+        
+        foreach (var cardRef in Cards)
+        {
+            cardRef.Refresh();
+        }
+        OnPropertyChanged("CardsCollection");
+    }
+    
+    public void RemoveCard(Card? card)
+    {
+        //todo burn karet - cena spaleni kart
+        
+        if (card is not null)
+        {
+            if (!Cards.Contains(card))
+            {
+                return;
+            }
+            money -= card.CostBurn;
+            OnPropertyChanged("money");
+            Cards.Remove(card);
+            CardsCollection.Remove(card);
         }
         
         foreach (var cardRef in Cards)
@@ -248,11 +269,11 @@ public class Player : INotifyPropertyChanged
                 break;
             case 1:
                 //todo priklad minima 
-                if (onePercent <= -25)
-                {
-                    onePercent = 25; 
-                    return;
-                }
+                //if (onePercent <= -25)
+                //{
+                //    onePercent = 25; 
+                //    return;
+                //}
                 onePercent += value;
                 OnPropertyChanged("onePercent");
                 break;
