@@ -159,6 +159,9 @@ public class Player : INotifyPropertyChanged
             {
                 return;
             }
+            
+            LastCardAction = card;
+            
             AddCardToPlayer(card);
             CardsCollection.Add(card);
         }
@@ -184,6 +187,9 @@ public class Player : INotifyPropertyChanged
             {
                 return;
             }
+
+            LastCardAction = card;
+            
             money -= card.CostBurn;
             OnPropertyChanged("money");
             Cards.Remove(card);
@@ -280,6 +286,28 @@ public class Player : INotifyPropertyChanged
         }
 
         return MoneyTMP < 0;
+    }
+    
+    private Card? LastCardAction { get; set; }
+    public void RevertCard()
+    {
+        if (LastCardAction is not null)
+        {
+            if (Cards.Contains(LastCardAction))
+            {
+                Cards.Remove(LastCardAction);
+                CardsCollection.Remove(LastCardAction);
+                money += LastCardAction.Cost;
+                OnPropertyChanged("money");
+            }
+            else
+            {
+                Cards.Add(LastCardAction);
+                CardsCollection.Add(LastCardAction);
+                money += LastCardAction.CostBurn;
+                OnPropertyChanged("money");
+            }
+        }
     }
 
     /**

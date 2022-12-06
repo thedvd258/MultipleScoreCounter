@@ -40,6 +40,8 @@
         <Menu HorizontalAlignment="Right" DockPanel.Dock="Top">
             <MenuItem Header="_Odebrat označeného hráče" CommandParameter="{Binding #Players.SelectedItem}" Command="{Binding RemovePlayer}"/>
             <Separator MinWidth="50"/>
+            <MenuItem Header="_Zrušit poslední akci (vybraný hráč)" CommandParameter="{Binding #Players.SelectedItem}" Command="{Binding RevertActionPlayer}"/>
+            <Separator/>
             <TextBlock Text="{Binding RoundText}"/>
             <Separator/>
             <MenuItem Header="_Nové kolo" Command="{Binding StartNewRound}"/>
@@ -48,9 +50,9 @@
         </Menu>
         <StackPanel>
             
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" MinHeight="620" MaxHeight="620" AllowAutoHide="False">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" MinHeight="690" MaxHeight="690" AllowAutoHide="False">
                 <StackPanel>
-                    <ListBox Name="Players" Items="{Binding Players}" VerticalAlignment="Top" MaxHeight="620" SelectedItem="{Binding SelectedPlayer}">
+                    <ListBox Name="Players" Items="{Binding Players}" VerticalAlignment="Top" MaxHeight="690" SelectedItem="{Binding SelectedPlayer}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <!-- Panel with score boxes -->
@@ -302,7 +304,7 @@
             
             <!--<ScrollViewer VerticalScrollBarVisibility="Auto">-->
                 <UniformGrid>
-                    <ScrollViewer  VerticalScrollBarVisibility="Auto" MaxHeight="390" AllowAutoHide="False">
+                    <ScrollViewer  VerticalScrollBarVisibility="Auto" MaxHeight="320" AllowAutoHide="False">
                     <ItemsRepeater Items="{Binding Cards}" VerticalAlignment="Bottom" Background="Black">
                         <ItemsRepeater.Layout>
                             <!--<StackLayout Spacing="20" Orientation="Horizontal"/>-->

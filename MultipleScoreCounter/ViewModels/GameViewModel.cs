@@ -96,6 +96,10 @@ namespace MultipleScoreCounter.ViewModels
             return CanStartRound;
         }
 
+        public void RevertActionPlayer(Player player)
+        {
+            player.RevertCard();
+        }
 
         public void RemovePlayer(Player player)
         {
