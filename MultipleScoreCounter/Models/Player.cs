@@ -289,77 +289,156 @@ public class Player : INotifyPropertyChanged
                 OnPropertyChanged("money");
                 break;
             case 1:
-                //todo priklad minima 
-                //if (onePercent <= -25)
-                //{
-                //    onePercent = 25; 
-                //    return;
-                //}
                 onePercent += value;
+                if (onePercent <= -10)
+                {
+                    onePercent = -10; 
+                    return;
+                }
                 OnPropertyChanged("onePercent");
                 break;
             case 2:
                 LGBT += value;
+                if (LGBT <= -18)
+                {
+                    LGBT = -18; 
+                    return;
+                }
                 OnPropertyChanged("LGBT");
                 break;
             case 3:
                 etnics += value;
+                if (etnics <= -29)
+                {
+                    etnics = -29; 
+                    return;
+                }
                 OnPropertyChanged("etnics");
                 break;
             case 4:
                 smallBussiness += value;
+                if (smallBussiness <= -37)
+                {
+                    smallBussiness = -37; 
+                    return;
+                }
                 OnPropertyChanged("smallBussiness");
                 break;
             case 5:
                 students += value;
+                if (students <= -44)
+                {
+                    students = -44; 
+                    return;
+                }
                 OnPropertyChanged("students");
                 break;
             case 6:
                 elderly += value;
+                if (elderly <= -52)
+                {
+                    elderly = -52; 
+                    return;
+                }
                 OnPropertyChanged("elderly");
                 break;
             case 7:
                 proletariat += value;
+                if (proletariat <= -46)
+                {
+                    proletariat = -46; 
+                    return;
+                }
                 OnPropertyChanged("proletariat");
                 break;
             case 8:
                 families += value;
+                if (families <= -38)
+                {
+                    families = -38; 
+                    return;
+                }
                 OnPropertyChanged("families");
                 break;
             case 9:
                 samozivitele += value;
+                if (samozivitele <= -35)
+                {
+                    samozivitele = -35; 
+                    return;
+                }
                 OnPropertyChanged("samozivitele");
                 break;
             case 10:
                 unemployed += value;
+                if (unemployed <= -21)
+                {
+                    unemployed = -21; 
+                    return;
+                }
                 OnPropertyChanged("unemployed");
                 break;
             case 11:
                 inteligence += value;
+                if (inteligence <= -33)
+                {
+                    inteligence = -33; 
+                    return;
+                }
                 OnPropertyChanged("inteligence");
                 break;
             case 12:
                 agrary += value;
+                if (agrary <= -39)
+                {
+                    agrary = -39; 
+                    return;
+                }
                 OnPropertyChanged("agrary");
                 break;
             case 13:
                 religious += value;
+                if (religious <= -33)
+                {
+                    religious = -33; 
+                    return;
+                }
                 OnPropertyChanged("religious");
                 break;
             case 14:
                 patriots += value;
+                if (patriots <= -38)
+                {
+                    patriots = -38; 
+                    return;
+                }
                 OnPropertyChanged("patriots");
                 break;
             case 15:
                 soldiers += value;
+                if (soldiers <= -13)
+                {
+                    soldiers = -13; 
+                    return;
+                }
                 OnPropertyChanged("soldiers");
                 break;
             case 16:
                 emigrants += value;
+                if (emigrants <= -5)
+                {
+                    emigrants = -5; 
+                    return;
+                }
                 OnPropertyChanged("emigrants");
                 break;
             case 17:
                 officers += value;
+                if (officers <= -39)
+                {
+                    officers = -39; 
+                    return;
+                }
                 OnPropertyChanged("officers");
                 break;
         }
