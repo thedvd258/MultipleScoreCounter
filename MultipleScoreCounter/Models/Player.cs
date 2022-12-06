@@ -166,8 +166,6 @@ public class Player : INotifyPropertyChanged
     
     public void RemoveCard(Card? card)
     {
-        //todo burn karet - cena spaleni kart
-        
         if (card is not null)
         {
             if (!Cards.Contains(card))
