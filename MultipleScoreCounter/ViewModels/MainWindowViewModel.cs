@@ -65,6 +65,21 @@ namespace MultipleScoreCounter.ViewModels
         private void fillCardDatabase()
         {
             cardDatabase.Add(new Card(
+                "Škrty v rozpočtu - bezpečnost",
+                8,
+                3,
+                new List<Tuple<int, int>>
+                {
+                    Tuple.Create(0, 2),
+                    Tuple.Create(2, -1),
+                    Tuple.Create(3, -1),
+                    Tuple.Create(6, 2),
+                    Tuple.Create(8, -3),
+                    Tuple.Create(10, 1),
+                    Tuple.Create(11, -2),
+                    Tuple.Create(14, 3),
+                }));
+            cardDatabase.Add(new Card(
                 "Škrty v rozpočtu - veřejná správa",
                 21,
                 1,
@@ -115,7 +130,7 @@ namespace MultipleScoreCounter.ViewModels
                 new List<Tuple<int, int>>
                 {
                     Tuple.Create(0, -3),
-                    Tuple.Create(5, -1),
+                    Tuple.Create(5, -4),
                     Tuple.Create(6, 2),
                     Tuple.Create(8, -3),
                     Tuple.Create(10, 1),
@@ -205,12 +220,13 @@ namespace MultipleScoreCounter.ViewModels
                 2,
                 new List<Tuple<int, int>>
                 {
-                    Tuple.Create(0, -7),
+                    Tuple.Create(0, -9),
                     Tuple.Create(1, 2),
                     Tuple.Create(5, 3),
                     Tuple.Create(8, 2),
                     Tuple.Create(10, -1),
                     Tuple.Create(11, 3),
+                    Tuple.Create(13, 3),
                 }));
             cardDatabase.Add(new Card(
                 "Navýšení rozpočtu - doprava + obchod",
@@ -794,10 +810,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Zahraniční intervence",
-                0,
-                0,
+                14,
+                9,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, 3),
                     Tuple.Create(5, -3),
                     Tuple.Create(6, -3),
                     Tuple.Create(7, -1),
@@ -808,10 +825,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Prohlubování zahraniční spolupráce - USA",
-                0,
-                0,
+                12,
+                7,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, -2),
                     Tuple.Create(1, 2),
                     Tuple.Create(2, 2),
                     Tuple.Create(4, 1),
@@ -823,10 +841,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Prohlubování EU integrace",
-                0,
-                0,
+                13,
+                6,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, 3),
                     Tuple.Create(1, 1),
                     Tuple.Create(2, 3),
                     Tuple.Create(3, 1),
@@ -842,10 +861,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "EET",
-                0,
-                0,
+                10,
+                8,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, 4),
                     Tuple.Create(1, -4),
                     Tuple.Create(4, -4),
                     Tuple.Create(14, 1),
@@ -853,10 +873,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Kurzarbeit",
-                0,
-                0,
+                12,
+                9,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, -2),
                     Tuple.Create(7, 3),
                     Tuple.Create(8, 2),
                     Tuple.Create(9, 3),
@@ -865,10 +886,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Škrty v bezpečnostních složkách",
-                0,
-                0,
+                8,
+                7,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, 5),
                     Tuple.Create(2, 2),
                     Tuple.Create(6, -2),
                     Tuple.Create(10, 1),
@@ -943,10 +965,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Kampaň \"žeru maso\"",
-                0,
-                0,
+                14,
+                8,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, 3),
                     Tuple.Create(4, 2),
                     Tuple.Create(11, -1),
                     Tuple.Create(12, 2),
@@ -954,10 +977,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Standardizovaná maturita",
-                0,
-                0,
+                -80,
+                12,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, -9),
                     Tuple.Create(5, 1),
                     Tuple.Create(8, -2),
                     Tuple.Create(11, 4),
@@ -966,10 +990,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Navýšení počtu pracovníků veřejné správy",
-                0,
-                0,
+                20,
+                5,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, 12),
                     Tuple.Create(6, -3),
                     Tuple.Create(7, -2),
                     Tuple.Create(8, -3),
@@ -980,10 +1005,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Snížení počtu pracovníků veřejné správy",
-                0,
-                0,
+                12,
+                8,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, 3),
                     Tuple.Create(6, 1),
                     Tuple.Create(7, 2),
                     Tuple.Create(8, 1),
@@ -994,10 +1020,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Euroskepticismus",
-                0,
-                0,
+                22,
+                18,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, -6),
                     Tuple.Create(2, -3),
                     Tuple.Create(3, -2),
                     Tuple.Create(5, -3),
@@ -1011,25 +1038,27 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Zavedení Eura",
-                0,
-                0,
+                20,
+                14,
                 new List<Tuple<int, int>>
                 {
-                    Tuple.Create(1, 1),
+                    Tuple.Create(0, 4),
+                    Tuple.Create(1, 3),
                     Tuple.Create(4, 1),
                     Tuple.Create(6, -3),
                     Tuple.Create(7, -1),
                     Tuple.Create(9, -3),
-                    Tuple.Create(11, 2),
+                    Tuple.Create(11, 5),
                     Tuple.Create(14, -4),
                     Tuple.Create(16, 1),
                 }));
             cardDatabase.Add(new Card(
                 "Zvýšení důchodů",
-                0,
-                0,
+                35,
+                20,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, -15),
                     Tuple.Create(5, -3),
                     Tuple.Create(6, 5),
                     Tuple.Create(7, 2),
@@ -1041,10 +1070,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Podpora elektromobility",
-                0,
-                0,
+                20,
+                12,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, 5),
                     Tuple.Create(1, 1),
                     Tuple.Create(2, 3),
                     Tuple.Create(4, 1),
@@ -1056,10 +1086,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Vojenská podpora ukrajině",
-                0,
-                0,
+                19,
+                15,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, 6),
                     Tuple.Create(2, 2),
                     Tuple.Create(3, 2),
                     Tuple.Create(6, -2),
@@ -1068,10 +1099,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Humanitární podpora ukrajině",
-                0,
-                0,
+                30,
+                25,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, -14),
                     Tuple.Create(2, 5),
                     Tuple.Create(3, 5),
                     Tuple.Create(6, 1),
@@ -1079,10 +1111,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Hostitelství vědecké konference",
-                0,
-                0,
+                15,
+                12,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, -5),
                     Tuple.Create(1, 1),
                     Tuple.Create(5, 2),
                     Tuple.Create(6, -1),
@@ -1091,10 +1124,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Justiční reforma",
-                0,
-                0,
+                18,
+                14,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, -6),
                     Tuple.Create(1, -4),
                     Tuple.Create(2, -3),
                     Tuple.Create(3, 1),
@@ -1104,10 +1138,11 @@ namespace MultipleScoreCounter.ViewModels
                 }));
             cardDatabase.Add(new Card(
                 "Pořádání olympiády",
-                0,
-                0,
+                100,
+                70,
                 new List<Tuple<int, int>>
                 {
+                    Tuple.Create(0, 35),
                     Tuple.Create(1, 1),
                     Tuple.Create(2, 3),
                     Tuple.Create(3, 2),
@@ -1123,7 +1158,7 @@ namespace MultipleScoreCounter.ViewModels
                 40,
                 new List<Tuple<int, int>>
                 {
-                    Tuple.Create(0, 20),
+                    Tuple.Create(0, 25),
                     Tuple.Create(1, 1),
                     Tuple.Create(4, 3),
                     Tuple.Create(5, 2),
